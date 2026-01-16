@@ -11,38 +11,32 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
-      {/* LEFT SIDE */}
+    <header className="navbar">
       <div className="navbar-left">
         <span className="logo">🌸</span>
-        <span className="title">BloomCycle</span>
+        <h2 className="brand-text">BloomCycle</h2>
+
       </div>
 
-      {/* RIGHT SIDE */}
-      <div className="navbar-right">
+      <nav className="navbar-right">
         <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
 
         {isLoggedIn ? (
           <>
-            <Link to="/dashboard" className="nav-link">
-              Dashboard
-            </Link>
+            <Link to="/dashboard" className="nav-link">Dashboard</Link>
             <button className="nav-btn logout" onClick={handleLogout}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
-            <Link to="/register" className="nav-btn">
-              Register
-            </Link>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="nav-btn">Register</Link>
           </>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
 

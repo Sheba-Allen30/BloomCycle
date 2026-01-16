@@ -5,9 +5,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 60px;
+
+  /* CRITICAL */
+  position: relative;
+  z-index: 1000;
 }
 
-/* LEFT */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -24,17 +27,21 @@
   font-weight: bold;
 }
 
-/* RIGHT */
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
+/* MAKE LINKS CLICKABLE */
 .nav-link {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  cursor: pointer;
+
+  /* CRITICAL */
+  pointer-events: auto;
 }
 
 .nav-link:hover {
@@ -52,10 +59,20 @@
   cursor: pointer;
 }
 
-.nav-btn.logout {
-  background: #fff;
+.logout {
+  cursor: pointer;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.nav-btn:hover {
-  opacity: 0.9;
+.logo-icon {
+  font-size: 1.6rem;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
 }

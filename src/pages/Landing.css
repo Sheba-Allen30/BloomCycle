@@ -1,47 +1,45 @@
+.landing {
+  padding: 50px 10%;
+  background: #fff5f7;
+}
+
+/* HERO */
 .hero {
-  height: calc(100vh - 70px);
-  background: linear-gradient(to right, #fdecef, #fff);
-  display: flex;
-  align-items: center;
-  padding-left: 80px;
+  display: block;
+  margin-bottom: 40px;
 }
 
-.hero-content {
-  max-width: 600px;
-}
-
-.hero-content h1 {
+.hero h1 {
   font-size: 3rem;
   color: #c9184a;
   margin-bottom: 15px;
 }
 
-.hero-content p {
+.hero p {
   font-size: 1.1rem;
   color: #555;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 25px;
 }
 
+/* BUTTONS */
 .hero-buttons {
   display: flex;
   gap: 20px;
 }
 
-.btn-primary {
-  background: #c9184a;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
+/* FEATURES */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.btn-secondary {
-  border: 2px solid #c9184a;
-  color: #c9184a;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
+/* CARD */
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
 }

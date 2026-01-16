@@ -1,77 +1,54 @@
 import { useState } from "react";
 
 function LogPeriod() {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const [flow, setFlow] = useState("Medium");
-  const [notes, setNotes] = useState("");
-
-  const handleSave = () => {
-    const periodData = {
-      startDate,
-      endDate,
-      flow,
-      notes,
-    };
-
-    // Frontend-only save (for demo)
-    localStorage.setItem("lastPeriod", JSON.stringify(periodData));
-    alert("Period details saved!");
-  };
 
   return (
-    <div className="log-period">
-      <h1>Log Period</h1>
-      <p className="subtitle">Track your menstrual cycle accurately</p>
+    <div className="page-section">
+      <h1 className="page-title">Log Period</h1>
+      <p className="page-subtitle">
+        Track your menstrual cycle accurately
+      </p>
 
-      <div className="log-card">
-        {/* DATE PICKERS */}
-        <div className="date-row">
-          <div>
+      <div className="section-card log-card">
+        {/* DATE ROW */}
+        <div className="form-row">
+          <div className="form-group">
             <label>Start Date</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
+            <input type="date" />
           </div>
 
-          <div>
+          <div className="form-group">
             <label>End Date</label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
+            <input type="date" />
           </div>
         </div>
 
-        {/* FLOW INTENSITY */}
-        <label>Flow Intensity</label>
-        <div className="flow-options">
-          {["No Flow", "Spotting", "Light", "Medium", "Heavy"].map((level) => (
-            <button
-              key={level}
-              className={flow === level ? "flow-btn active" : "flow-btn"}
-              onClick={() => setFlow(level)}
-            >
-              {level}
-            </button>
-          ))}
+        {/* FLOW */}
+        <div className="form-group">
+          <label>Flow Intensity</label>
+          <div className="flow-options">
+            {["No Flow", "Spotting", "Light", "Medium", "Heavy"].map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={`flow-btn ${flow === item ? "active" : ""}`}
+                onClick={() => setFlow(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* NOTES */}
-        <label>Notes (optional)</label>
-        <textarea
-          placeholder="Any symptoms or notes..."
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-        />
+        <div className="form-group">
+          <label>Notes (optional)</label>
+          <textarea placeholder="Any symptoms or notes..." />
+        </div>
 
         {/* SAVE */}
-        <button className="save-btn" onClick={handleSave}>
-          Save Period
-        </button>
+        <button className="save-btn">Save Period</button>
       </div>
     </div>
   );

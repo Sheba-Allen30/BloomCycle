@@ -1,91 +1,35 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import "../App.css";
 
-function Insights() {
-  const membership = localStorage.getItem("membership") || "FREE";
-  const cycleLength = 28;
-  const periodDuration = 5;
-
-  const lastPeriod = JSON.parse(localStorage.getItem("lastPeriod"));
-  const symptomsData = JSON.parse(localStorage.getItem("symptoms"));
-
-  let nextPeriod = "Not available";
-
-  if (lastPeriod?.startDate) {
-    const lastStart = new Date(lastPeriod.startDate);
-    const nextStart = new Date(lastStart);
-    nextStart.setDate(lastStart.getDate() + cycleLength);
-    nextPeriod = nextStart.toDateString();
-  }
-
-  /* FREE USER VIEW */
-  if (membership !== "PREMIUM") {
-    return (
-      <div className="insights-page">
-        <h1>Insights 🔒</h1>
-        <p className="subtitle">
-          Advanced insights are available for Premium members only.
-        </p>
-
-        <Link to="/membership" className="upgrade-banner">
-          Upgrade to Premium →
-        </Link>
-      </div>
-    );
-  }
-
-  /* PREMIUM VIEW */
-  const symptomCounts = {};
-  if (symptomsData?.symptoms) {
-    symptomsData.symptoms.forEach((s) => {
-      symptomCounts[s] = (symptomCounts[s] || 0) + 1;
-    });
-  }
+export default function Insights() {
+  const isPremium = localStorage.getItem("premium") === "true";
 
   return (
-    <div className="insights-page">
-      <h1>Insights</h1>
-      <p className="subtitle">
-        Advanced cycle analytics and trends
-      </p>
+    <div className="page-section">
+      <h1 className="dashboard-title">Insights</h1>
 
-      <div className="insight-stats">
-        <div className="stat-box">
-          <h3>Avg Cycle</h3>
-          <p>{cycleLength} Days</p>
+      {!isPremium ? (
+        <div className="section-card" style={{ textAlign: "center" }}>
+          <h2>🔒 Premium Feature</h2>
+          <p>Upgrade to unlock advanced cycle insights.</p>
+          <button
+            className="btn-primary"
+            onClick={() => {
+              localStorage.setItem("premium", "true");
+              window.location.reload();
+            }}
+          >
+            Upgrade Now
+          </button>
         </div>
-
-        <div className="stat-box">
-          <h3>Period Length</h3>
-          <p>{periodDuration} Days</p>
+      ) : (
+        <div className="section-card">
+          <h2>📈 Advanced Insights</h2>
+          <p>• Average cycle length: 28 days</p>
+          <p>• Most common symptom: Cramps</p>
+          <p>• Best wellness days predicted</p>
         </div>
-
-        <div className="stat-box">
-          <h3>Next Period</h3>
-          <p>{nextPeriod}</p>
-        </div>
-      </div>
-
-      <div className="symptom-summary">
-        <h2>Symptom Frequency</h2>
-
-        {Object.keys(symptomCounts).length ? (
-          Object.keys(symptomCounts).map((symptom) => (
-            <div key={symptom} className="symptom-row">
-              <span>{symptom}</span>
-              <div className="bar">
-                <div
-                  className="bar-fill"
-                  style={{ width: `${symptomCounts[symptom] * 25}%` }}
-                ></div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No symptom data available.</p>
-        )}
-      </div>
+      )}
     </div>
   );
 }
-
-export default Insights;

@@ -1,23 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 function Membership() {
-  const navigate = useNavigate();
-
-  const upgradeToPremium = () => {
-    localStorage.setItem("membership", "PREMIUM");
-    alert("You are now a Premium Member 🌟");
-    navigate("/dashboard");
-  };
-
   return (
-    <div className="membership-page">
-      <h1>BloomCycle Membership</h1>
-      <p className="subtitle">
+    <div className="page-section">
+      <h1 className="page-title">BloomCycle Membership</h1>
+      <p className="page-subtitle">
         Unlock advanced cycle insights and predictions
       </p>
 
       <div className="membership-cards">
-        {/* FREE */}
+        {/* FREE PLAN */}
         <div className="membership-card">
           <h2>Free</h2>
           <ul>
@@ -26,12 +18,17 @@ function Membership() {
             <li>✔ Basic calendar</li>
             <li>✔ Next period prediction</li>
           </ul>
-          <button disabled className="free-btn">Current Plan</button>
+
+          <button className="free-btn" disabled>
+            Current Plan
+          </button>
         </div>
 
-        {/* PREMIUM */}
+        {/* PREMIUM PLAN */}
         <div className="membership-card premium">
-          <h2>Premium 🌟</h2>
+          <h2>
+            Premium <span>✨</span>
+          </h2>
           <ul>
             <li>✔ Everything in Free</li>
             <li>✔ 3-month predictions</li>
@@ -39,7 +36,8 @@ function Membership() {
             <li>✔ Advanced insights</li>
             <li>✔ Charts & trends</li>
           </ul>
-          <button className="premium-btn" onClick={upgradeToPremium}>
+
+          <button className="premium-btn">
             Upgrade Now
           </button>
         </div>
