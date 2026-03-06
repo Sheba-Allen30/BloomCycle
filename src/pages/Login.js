@@ -1,44 +1,113 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import API from "../api/axios";
+import "./Auth.css";
 
 function Login() {
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    localStorage.setItem("isLoggedIn", "true");
-    navigate("/dashboard");
+
+    if (!email || !password) {
+      alert("All fields are required");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await API.post("/auth/login", {
+        email,
+        password,
+      });
+
+      const token = res.data.token;
+      const isPremium = res.data.user.isPremium;
+      // Storing username for the dashboard greeting
+      const userName = res.data.user.name || "Beautiful";
+
+      if (rememberMe) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("isPremium", isPremium);
+        localStorage.setItem("userName", userName);
+      } else {
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("isPremium", isPremium);
+        localStorage.setItem("userName", userName);
+      }
+
+      navigate("/dashboard");
+
+    } catch (error) {
+      alert(error.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h2>Welcome Back</h2>
-        <p className="auth-subtitle">
-          Login to continue tracking your cycle
-        </p>
+        <p className="auth-subtitle">Login to continue tracking your cycle</p>
 
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email address"
-            required
-          />
+        <form onSubmit={handleLogin} className="auth-form">
+          <div className="input-group">
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="input-group">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
 
-          <button type="submit" className="auth-btn">
-            Login
+          <div className="form-options">
+            <label className="remember-me">
+              <input
+                type="checkbox"
+                onChange={() => setRememberMe(!rememberMe)}
+              />
+              Remember Me
+            </label>
+            <Link to="/forgot-password" className="forgot-link">
+              Forgot Password?
+            </Link>
+          </div>
+
+          <button type="submit" disabled={loading} className="auth-btn">
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        <div className="auth-footer">
-          New to BloomCycle?{" "}
+        <p className="auth-footer">
+          New to BloomCycle?
           <Link to="/register">Create an account</Link>
-        </div>
+        </p>
       </div>
     </div>
   );

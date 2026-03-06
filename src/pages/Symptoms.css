@@ -1,0 +1,38 @@
+.symptom-tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.symptom-tag-btn {
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.symptom-tag-btn:hover {
+  border-color: var(--secondary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 179, 198, 0.2);
+}
+
+.symptom-tag-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(201, 24, 74, 0.3);
+}
+
+.symptom-tag-btn.active:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}

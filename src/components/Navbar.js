@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../assets/BLOOMCYCLE_LOGO.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -12,12 +13,13 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="navbar-left">
-        <span className="logo">🌸</span>
+      {/* LEFT: LOGO + BRAND */}
+      <Link to="/" className="navbar-left">
+        <img src={logo} alt="BloomCycle Logo" className="nav-logo" />
         <h2 className="brand-text">BloomCycle</h2>
+      </Link>
 
-      </div>
-
+      {/* RIGHT: LINKS */}
       <nav className="navbar-right">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/about" className="nav-link">About</Link>

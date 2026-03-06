@@ -1,78 +1,87 @@
 .navbar {
-  height: 70px;
-  background: #c9184a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
-
-  /* CRITICAL */
-  position: relative;
-  z-index: 1000;
+  padding: 14px 10%;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+/* LEFT */
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
-.logo {
-  font-size: 1.6rem;
+.nav-logo {
+  width: 36px;
+  height: auto;
 }
 
-.title {
-  color: white;
+.brand-text {
   font-size: 1.4rem;
-  font-weight: bold;
+  color: #c9184a;
 }
 
+/* RIGHT */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 22px;
 }
 
-/* MAKE LINKS CLICKABLE */
 .nav-link {
-  color: white;
   text-decoration: none;
+  color: #333;
   font-weight: 500;
-  cursor: pointer;
-
-  /* CRITICAL */
-  pointer-events: auto;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
 }
 
 .nav-btn {
-  background: white;
-  color: #c9184a;
-  padding: 8px 18px;
-  border-radius: 20px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #c9184a;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
   border: none;
   cursor: pointer;
 }
 
-.logout {
-  cursor: pointer;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.nav-btn.logout {
+  background-color: #6c757d;
 }
 
-.logo-icon {
-  font-size: 1.6rem;
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 6%;
+  }
+
+  .navbar-right {
+    gap: 14px;
+  }
+
+  .brand-text {
+    font-size: 1.2rem;
+  }
 }
 
-.brand {
-  font-size: 1.4rem;
-  font-weight: 700;
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 12px;
+  }
 }

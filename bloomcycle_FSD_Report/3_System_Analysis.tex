@@ -1,0 +1,27 @@
+\chapter{SYSTEM ANALYSIS}
+ 
+ \section{Module Description}
+ The "Bloomcycle" application is divided into multiple functional modules:
+ \begin{itemize}
+    \item \textbf{Authentication \& Authorization Module:} This module is responsible for secure user registration and login via JSON Web Tokens (JWT).
+    \item \textbf{Period Tracking Module:} Core module logging start/end dates of menstrual cycles to compute history.
+    \item \textbf{Symptom Logging Module:} Tracks daily physical/emotional symptoms (cramps, fatigue, mood) against specific dates.
+    \item \textbf{Prediction \& Insights Module:} Predicts next cycle using historical averages and presents data through interactive dashboard graphs.
+\end{itemize}
+
+\section{Analysis of Architecture}
+{\large \textbf{MERN Stack Architecture}}\\\\
+Bloomcycle is built on MongoDB, Express.js, React.js, and Node.js.
+\begin{enumerate}
+    \item \textbf{React.js (Frontend):} Fast, component-based UIs displaying calendars and forms.
+    \item \textbf{Node.js \& Express.js (Backend):} Fast API processing, JWT auth middleware.
+    \item \textbf{MongoDB (Database):} Flexible NoSQL schema holding periods and variable symptom logs.
+\end{enumerate}
+
+\section{Feasibility Analysis}
+\subsection{Technical Feasibility}
+The system is highly technically feasible due to widespread support for MERN and cloud-based deployments.
+\subsection{Economical Feasibility}
+The economic feasibility is viable, utilizing minimal running costs via free tier cloud services like MongoDB Atlas.
+\subsection{Operational Feasibility}
+Operationally, Bloomcycle naturally integrates into standard daily tracking habits on web platforms.
