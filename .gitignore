@@ -24,3 +24,5 @@ yarn-error.log*
 
 # ignore zip archives
 *.zip
+Sample report/
+bloomcycle_FSD_Report/

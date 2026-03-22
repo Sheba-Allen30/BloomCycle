@@ -7,6 +7,10 @@
 \usepackage{titlesec}
 \usepackage{times}
 
+\usepackage{times}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,fit,backgrounds}
+
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -49,14 +53,14 @@
 \newpage
 \include{certificate}
 \newpage
-\setstretch{1.15} % Set line spacing to 1.15
+\setstretch{2.0} % Set line spacing to 2.0 (Double Spacing) for maximum academic expansion
 \pagenumbering{roman}
 \include{acknowledgement}
 \newpage
 \include{abstract}
 \newpage
 % Increase line spacing for TOC, List of Tables, and List of Figures
-\renewcommand{\baselinestretch}{1.15}  % Adjust this value for desired spacing
+\renewcommand{\baselinestretch}{1.5}  % Adjust this value for desired spacing
 \selectfont  % Apply the line spacing change
 
 % List of Tables (Centering) - Uses Roman numerals
@@ -81,7 +85,7 @@
 \newpage
 \pagestyle{fancy}
 \fancyhf{}  
-\fancyhead[R]{{Bloomcycle}}
+\fancyhead[R]{Bloomcycle Application}
 
 % Footer with horizontal line
 \renewcommand{\footrulewidth}{0.4pt} % Thickness of the footer line
@@ -105,19 +109,16 @@
 \pagenumbering{arabic}
 
 % Include content titles
-\include{1_Introduction}
-\include{3_System_Analysis}
-\include{4_System_Design}
-\include{5_testing}
-\include{6_deployement}
-\include{7_Git_History}
-\include{8_Conclusion}
-\include{10_Appendix}
+\include{bloomcycle_intro}
+\include{bloomcycle_analysis}
+\include{bloomcycle_design}
+\include{bloomcycle_testing}
+\include{bloomcycle_deployment}
+\include{bloomcycle_git}
+\include{bloomcycle_conclusion}
 
 % Bibliography Section
 \renewcommand{\bibname}{11 REFERENCES } 
 \addcontentsline{toc}{chapter}{11 REFERENCES }  % Adds "References" to ToC
-
-
 
 \end{document}

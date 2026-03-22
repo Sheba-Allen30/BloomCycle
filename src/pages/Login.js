@@ -6,7 +6,7 @@ import "./Auth.css";
 function Login() {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -15,7 +15,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
+    if (!username || !password) {
       alert("All fields are required");
       return;
     }
@@ -24,7 +24,7 @@ function Login() {
       setLoading(true);
 
       const res = await API.post("/auth/login", {
-        email,
+        username,
         password,
       });
 
@@ -61,10 +61,10 @@ function Login() {
         <form onSubmit={handleLogin} className="auth-form">
           <div className="input-group">
             <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>

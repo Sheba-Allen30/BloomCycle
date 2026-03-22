@@ -14,12 +14,6 @@ body {
   color: #333;
 }
 
-/* Space for fixed navbar + footer */
-.app-content {
-  min-height: calc(100vh - 140px);
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
 
 /* ===============================
    BRAND
@@ -45,7 +39,7 @@ body {
   background: white;
   padding: 35px;
   border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ===============================
@@ -204,10 +198,8 @@ textarea {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: conic-gradient(
-    #c9184a var(--progress),
-    #ffe5ec 0deg
-  );
+  background: conic-gradient(#c9184a var(--progress),
+      #ffe5ec 0deg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +212,7 @@ textarea {
   border-radius: 50%;
   text-align: center;
   padding: 30px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 /* ===============================
@@ -237,7 +229,7 @@ textarea {
   background: white;
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .calendar-header {
@@ -339,6 +331,7 @@ textarea {
     gap: 40px;
   }
 }
+
 /* ===============================
    DASHBOARD FIX
 ================================ */
@@ -402,6 +395,7 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
 /* ===============================
    LANDING PAGE – FIXED
 ================================ */
@@ -439,7 +433,7 @@ textarea {
   padding: 30px;
   width: 280px;
   border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   text-align: center;
 }
 
@@ -461,7 +455,7 @@ textarea {
   background: white;
   padding: 30px;
   border-radius: 18px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -489,12 +483,12 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
 /* ===============================
    AUTH PAGES (LOGIN / REGISTER)
 ================================ */
 
 .auth-container {
-  min-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -561,6 +555,7 @@ textarea {
   text-decoration: none;
   font-weight: 500;
 }
+
 /* ===============================
    ABOUT PAGE
 ================================ */
@@ -597,9 +592,11 @@ textarea {
   margin-bottom: 8px;
   color: #444;
 }
+
 .nav-link.active {
   border-bottom: 2px solid white;
 }
+
 /* ===============================
    TRACK SYMPTOMS
 ================================ */
@@ -644,6 +641,7 @@ textarea {
   resize: none;
   height: 110px;
 }
+
 .membership-cards {
   display: flex;
   gap: 30px;
@@ -656,7 +654,7 @@ textarea {
   padding: 30px;
   border-radius: 18px;
   width: 280px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .membership-card h2 {
@@ -700,6 +698,7 @@ textarea {
 .premium-btn:hover {
   background: #a4133c;
 }
+
 .symptom-list {
   margin-top: 10px;
   padding-left: 0;
@@ -716,6 +715,7 @@ textarea {
   font-size: 0.9rem;
   color: #555;
 }
+
 .insight-entry {
   margin-top: 15px;
   padding: 12px;
@@ -726,6 +726,7 @@ textarea {
 .insight-entry p {
   margin: 4px 0;
 }
+
 .date-row {
   display: flex;
   gap: 20px;
@@ -756,6 +757,7 @@ textarea {
   color: white;
   border: none;
 }
+
 /* Center full page */
 .page-section {
   display: flex;
@@ -770,7 +772,7 @@ textarea {
   background: #f8f5f6;
   padding: 40px;
   border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* Date Row */
@@ -845,6 +847,7 @@ textarea.auth-input {
 .auth-btn:hover {
   background: #b51643;
 }
+
 .logout-btn {
   background: none;
   border: none;
@@ -857,11 +860,12 @@ textarea.auth-input {
 .logout-btn:hover {
   text-decoration: underline;
 }
+
 /* Navbar */
 .navbar {
   background: white;
   padding: 18px 40px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -911,10 +915,10 @@ textarea.auth-input {
 .logout-btn:hover {
   text-decoration: underline;
 }
+
 .dashboard-container {
-  padding: 60px 80px;
+  padding: 20px 10px;
   background: linear-gradient(to right, #f6e9ec, #f3e4e8);
-  min-height: 100vh;
 }
 
 .dashboard-header {
